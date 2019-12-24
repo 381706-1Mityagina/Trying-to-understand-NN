@@ -64,10 +64,12 @@
     \newpage
       \begin{center}
     %   Содержание
+        \tableofcontents
       \end{center}
     \newpage
     \begin{center} 
-      \huge \textbf{Введение} \\[1.3cm]
+    \section{Введение}
+    %   \huge \textbf{Введение} \\[1.3cm]
     \end{center} 
       \large Oдной из самых сложных проблем в мире Computer Vision является синтез высококачественных изображений из текстовых описаний. Без сомнения, это интересно и полезно, но современные системы искусственного интеллекта далеки от этой цели.
 
@@ -83,14 +85,16 @@
     - предъявлены результаты некоторых проведенных экспериментов\\
     \newpage
     \begin{center} 
-    \huge \textbf{Постановка задачи} \\[1.3cm]
+    \section{Постановка задачи}
+    % \huge \textbf{Постановка задачи} \\[1.3cm]
     \end{center} 
       \large 1. Исследовать различные публикации на поставленную тему.\\
              2. Изучить средства и методы решения задачи синтеза изображений из их словесного описания.\\
              3. Начать проведение практических экспериментов.\\
     \newpage
     \begin{center} 
-    \huge \textbf{Необходимый теоретический минимум} \\[1.3cm]
+    \section{Необходимый теоретический минимум}
+    % \huge \textbf{Необходимый теоретический минимум} \\[1.3cm]
     \end{center} 
       \large \textbf{1. Граф сцены}\\
       Граф сцены представляет структуру, которая содержит логическое и зачастую (но не обязательно) пространственное представление графической сцены. Определение графа сцены нечёткое, поскольку программисты, осуществляющие его реализацию в приложениях, — и, в частности, в индустрии разработки игр — берут базовые принципы и адаптируют их для применения в конкретных приложениях. Это означает, что нет договорённости о том, каким должен быть граф сцены.
@@ -112,9 +116,11 @@
     
     \newpage
     \begin{center} 
-    \huge \textbf{Разбор статей} \\[0.5cm]
-      \huge Image Generation from Scene Graphs.\\
-      Justin Johnson, Agrim Gupta, Li Fei-Fei\\ [1.3cm]
+    \section{Разбор статей}
+    % \huge \textbf{Разбор статей} \\[0.5cm]
+    \subsection{Статья 1 : Image Generation from Scene Graphs}
+    %   \huge Image Generation from Scene Graphs.\\
+      \huge Justin Johnson, Agrim Gupta, Li Fei-Fei\\ [1.3cm]
     \end{center} 
       \large Большинство существующих методов дают потрясающие результаты на ограниченных доменах, таких
 как описания птиц или цветов, но не могут точно воспроизвести
@@ -203,9 +209,11 @@ $D_{img}$ дискриминатор изображения на основе п
 вероятность того, что $D_{obj}$ правильно классифицирует объекты.\\ \\
 
 \begin{center} 
-      \huge AttnGAN: Fine-Grained Text to Image Generation
-with Attentional Generative Adversarial Networks.\\
-      Tao Xu, Pengchuan Zhang, Qiuyuan Huang, Han Zhang, Zhe Gan, Xiaolei Huang, Xiaodong He\\ [1.3cm]
+\subsection{Статья 2 : AttnGAN: Fine-Grained Text to Image Generation
+with Attentional Generative Adversarial Networks}
+    %   \huge AttnGAN: Fine-Grained Text to Image Generation
+% with Attentional Generative Adversarial Networks.\\
+      \hugeTao Xu, Pengchuan Zhang, Qiuyuan Huang, Han Zhang, Zhe Gan, Xiaolei Huang, Xiaodong He\\ [1.3cm]
     \end{center} 
       \large В этой статье предложена Attentional Generative Adversarial Network (AttnGAN), которая обеспечивает сосредоточенное,
 многоэтапный синтез изображения из текста. Благодаря новой генеративной сети внимания AttnGAN можно синтезировать мелкозернистые детали в разных областях изображения, обращая внимание на соответствующие слова в описании на естественном языке.
@@ -243,7 +251,8 @@ DAMSM изучает две нейронные сети, которые отоб
 
 \newpage
     \begin{center} 
-    \huge \textbf{Результаты практики} \\[0.5cm]
+    \section{Результаты практики}
+    % \huge \textbf{Результаты практики} \\[0.5cm]
     \end{center} 
       \large Была предпринята попытка расширить теоретические знания в области нейронных сетей (в том числе применительно к задаче генерации изображений по текстовому описанию сцены).\\
       В результате работы был реализован простейший автокодировщик, являющийся составной частью одного из описанных методов.\\
@@ -256,7 +265,8 @@ DAMSM изучает две нейронные сети, которые отоб
       \end{center} 
 \newpage
     \begin{center} 
-    \huge \textbf{Заключение} \\[0.5cm]
+    \section{Заключение}
+    % \huge \textbf{Заключение} \\[0.5cm]
     \end{center} 
       \large В ходе проделанной работы были достигнуты поставленные цели.\\ \\
         1. Исследованы различные публикации на поставленную тему (2).\\
@@ -268,7 +278,8 @@ DAMSM изучает две нейронные сети, которые отоб
         2. Photographic Text-to-Image Synthesis with a Hierarchically-nested Adversarial Network, Zizhao Zhang, Yuanpu Xie, Lin Yang\\
 \newpage
     \begin{center} 
-    \huge \textbf{Список литературы} \\[0.5cm]
+    \section{Список литературы}
+    % \huge \textbf{Список литературы} \\[0.5cm]
     \end{center} 
       \large 1. AttnGAN: Fine-Grained Text to Image Generation
 with Attentional Generative Adversarial Networks,
