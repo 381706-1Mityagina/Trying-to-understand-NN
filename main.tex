@@ -116,6 +116,21 @@
     
     \newpage
     \begin{center} 
+    \section{Обзор источников}
+    \end{center} 
+    \large 
+    На данную тему существует сравнительно немного литературы, что дает понять ее новизну и необходимость дальнейшего ее изучения.\\
+    Несомненно, одним из наиболее важных аспектов работы являются данные, использованные для обучения моделей.\\
+    Каждая статья отличается своим подходом к решению данной проблемы, но в большинстве своем они содержат в качестве составной части генеративно-состязательную сеть и различные ее модификации(ObjGAN, StackGAN, StackGAN++, AttnGAN и так далее).\\
+    Каждый из существующих методов дает отличные от других результаты. Если попытаться обобщить, то можно сказать, что есть алгоритмы, прекрасно выполняющие свою задачу при несложной структуре сцены и маленьком количестве объектов, но показывающие плохие результаты при усложнении одного из критериев. Есть авторы, попытавшиеся расширить границы возможностей GAN в данной области. В данном отчете будут рассмотрены примеры из обеих выделенных мною категорий.\\
+    А теперь уделим вниание данным, на которых обучались сети. Как говорил профессор Эндрю Ын в своих курсах: «В деле машинного обучения достигает успеха не тот, у кого есть наилучший алгоритм, а тот, у кого есть наилучшие данные». 
+    Чаще всего используются стандартные наборы данных(Data set) с фотографиями и текстовым описанием интересующих объектов(в большей части статьей такими объектами являются птицы, цветы, иногда и лица людей).\\
+    Далее приведен более подробный анализ двух конкретных статей :\\  - Image Generation from Scene Graphs, Justin Johnson, Agrim Gupta, Li Fei-Fei;\\  - AttnGAN: Fine-Grained Text to Image Generation
+with Attentional Generative Adversarial Networks, Xu, Pengchuan Zhang, Qiuyuan Huang, Han Zhang, Zhe Gan, Xiaolei Huang, Xiaodong He
+    
+    
+    \newpage
+    \begin{center} 
     \section{Разбор статей}
     % \huge \textbf{Разбор статей} \\[0.5cm]
     \subsection{Статья 1 : Image Generation from Scene Graphs}
@@ -286,6 +301,11 @@ with Attentional Generative Adversarial Networks,
       Justin Johnson, Agrim Gupta, Li Fei-Fei\\
       3. CVAE-GAN: Fine-Grained Image Generation through Asymmetric Training, Jianmin Bao, Dong Chen, Fang Wen, Houqiang Li, Gang Hua\\
       4. StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks, Han Zhang, Tao Xu, Hongsheng Li, Shaoting Zhang, Xiaogang Wang, Xiaolei Huang, Dimitris Metaxas\\
+      5. Text-to-Image Synthesis Based on Machine Generated Captions, Marco Menardi, Alex Falcon, Saida S.Mohamed, Lorenzo Seidenari, Giuseppe Serra, Alberto Del Bimbo and Carlo Tasso\\
+      6. MirrorGAN: Learning Text-to-image Generation by Redescription Tingting Qiao, Jing Zhang, Duanqing Xu, and Dacheng Tao\\
+      7. Object-driven Text-to-Image Synthesis via Adversarial Training, Wenbo Li, Pengchuan Zhang, Lei Zhang, Qiuyuan Huang, Xiaodong He, Siwei Lyu, Jianfeng Gao\\
+
+
 
 
 \end{document}
