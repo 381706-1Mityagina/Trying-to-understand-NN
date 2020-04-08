@@ -26,7 +26,13 @@ class Discriminator(net.Module):
             net.LeakyReLU(0.2, inplace = True),
             net.Conv2d(256, 512, 4, 2, 1, bias = False),
             net.BatchNorm2d(512),
-            net.LeakyReLU(0.2, inplace = True))
+            net.LeakyReLU(0.2, inplace = True)
+        )
+        # ---
+        # LeakyReLU - 
+        # Leaky ReLU имеет небольшой наклон для отрицательных значений, а не ноль.
+        # Например, Leaky ReLU может иметь y = 0,01x, когда x <0.
+        # ---
 
         # output_dim = (batch_size, 4, 4, 512)
         # text.size() = (batch_size, embed_dim)
