@@ -253,18 +253,22 @@
     Метод заключается в том, что мы модифицируем целевую функцию алгоритма.
     \\
     \\
-    Требуется: minibatch size m; learning rate $\epsilon$; number of iterations N; dataset X
+    Требуется: \\
+    minibatch size m; learning rate $\epsilon$; number of iterations N; dataset X \\
     1: \textbf {for} i in 1 to N \textbf {do}\\
-    2: \indent extract m samples $\{$ (x$^(1)$, t$^(1)$),(x$^(2)$, t$^(2)$), ...,(x$^(m)$, t$^(m)$)$\}$ from one class of the dataset X, where x$^(i)$ is the image and t$^(i)$ is the corresponding text description.\\
-    3: \indent extract m images $\{$ $\hat{x}^(1)$, $\hat{x}^(2)$, ..., $\hat{x}^(m)$ $\}$ from another class in X.\\
-    4: \indent encode the text descriptions: h$^(i)$ = $\varphi$(t$^(i)$), i = 1, ..., m.\\
-    5: \indent extract m random vectors {z$^(1)$, z$^(2)$, ..., z$^(m)$} from the distribution p$_z$(z).\\
-    6: \indent generate images $\widetilde{x}^(i)$ = G(z(i), h(i)), i = 1, ..., m.\\
-    7: \indent calculate LD = −1m Pm i=112[log(D(x(i), h(i))) + log(1 − D(˜x(i), h(i))) + log(D(ˆx(i), h(i))) + log(1 − D(ˆx(i), h(i)))].\\
-    8: \indent update the parameters of the discriminat or: θd ← θd − ∇θd LD(θd).\\
-    9: \indent calculate LG = 1 m Pm i=112log(1 − D(˜x( i), h(i)))).\\
-    10: \indent update the parameters of the generator: θg ← θg − ∇θg LG(θg).\\
+    2: \indent extract m samples $\{$ (x$^(1)$, t$^{(1)}$),(x$^{(2)}$, t$^{(2)}$), ...,(x$^{(m)}$, t$^{(m)}$)$\}$ from one class of the dataset X, where x$^{(i)}$ is the image and t$^{(i)}$ is the corresponding text description.\\
+    3: \indent extract m images $\{$ $\hat{x}^{(1)}$, $\hat{x}^{(2)}$, ..., $\hat{x}^{(m)}$ $\}$ from another class in X.\\
+    4: \indent encode the text descriptions: h$^{(i)}$ = $\varphi$(t$^{(i)}$), i = 1, ..., m.\\
+    5: \indent extract m random vectors {z$^{(1)}$, z$^{(2)}$, ..., z$^{(m)}$} from the distribution p$_z$(z).\\
+    6: \indent generate images $\widetilde{x}^{(i)}$ = G(z$^{(i)}$, h$^{(i)}$), i = 1, ..., m.\\
+    7: \indent calculate L$_D$ = −$^1/_m$ $\sum_{i=1}^{m}$ $^1/_2$[log(D(x$^{(i)}$, h$^{(i)}$)) + log(1 − D($\widetilde{x}$ $^{(i)}$, h$^{(i)}$)) + log(D($\hat{x}$ $^{(i)}$, h$^{(i)}$)) + log(1 − D($\hat{x}^{(i)}$, h$^{(i)}$))].\\
+    8: \indent update the parameters of the discriminator: $\theta _{d}$ $\leftarrow$ $\theta _{d}$ $- \epsilon \Delta$$\theta _{d}$ $L_{D}$($\theta _{d}$).\\
+    9: \indent calculate $L_{G}$ = 1 m $\sum_{i=1}^{m}$ $^1/_2$ log(1 − D($\widetilde{x}$ $^{(i)}$, h$^{(i)}$))).\\
+    10: \indent update the parameters of the generator: $\theta _{g}$ $\leftarrow$ $\theta _{g}$ $ - \epsilon \Delta$$\theta _{g}$ $L_{G}$LG($\theta _{g}$).\\
     11: \textbf {end for}
+    \\ \\ 
+    Для структуры сети применяется DCGAN. \\
+    Размер сгенерированного изображения 64 * 64 * 3. Используется предварительно обученная сеть char-CNN-RNN для кодирования текстов.
     
     \newpage
     \begin{center} 
