@@ -59,8 +59,8 @@
     \newpage
       \begin{center}
     %   Содержание
-        \tableofcontents
       \end{center}
+        \tableofcontents
       
     \newpage
     \begin{center} 
@@ -178,7 +178,6 @@
     \newpage
     \begin{center} 
     \section{Статья 1: GAN синтез изображения из текста}
-    %   \huge \textbf{Статья ""} \\[1.3cm]
     \end{center} 
     \large 
     Основной целью авторов являлась разработка простой и эффективной архитектуры GAN и стратегии обучения, позволяющих получить убедительный синтез текста в изображение. В основном они использовали наборы данных Caltech-UCSD Birds и Oxford-102 вместе с пятью текстовыми описаниями для каждого изображения. Помимо птиц и цветов они применяли модель для более общих изображений и текстовых описаний в MS COCO датасете.
@@ -230,8 +229,7 @@
 
     \newpage
     \begin{center} 
-    \section{Статья 2: Создание соответствующего изображения из текстового описания, используя модифицированный алгоритм GAN-CLS}
-    %   \huge \textbf{Статья ""} \\[1.3cm]
+    \section{Статья 2: Создание изображения из текстового описания, используя модифицированный алгоритм GAN-CLS}
     \end{center} 
     \large 
     Алгоритм GAN-CLS устанавливается на основе cGAN (Conditional GAN), а целевая функция модифицируется для того, чтобы дискриминатор мог судить, является ли входной текст и изображение соответствующими.\\
@@ -241,9 +239,9 @@
     Где h - вложение текста. $p_{d}$(x, h) - это распределение функция плотности выборок из набора данных, в которой совпадают x и h. $p_{\hat{d}}$(x, h) - функция плотности распределения выборок из набора данных, состоящего из текста и несоответствующего изображения.
     \\
     \begin{center} 
-    \includegraphics[scale=0.55]{second.png}
+    \includegraphics[scale=0.45]{second.png}
     \\
-    \caption{Рис. 1 - структура сети}
+    \caption{Рис. 2 - структура сети}
     \\ \\
     \end{center} 
     Дискриминатор имеет 3 вида входных данных:\\
@@ -263,7 +261,7 @@
     6: \indent generate images $\widetilde{x}^{(i)}$ = G(z$^{(i)}$, h$^{(i)}$), i = 1, ..., m.\\
     7: \indent calculate L$_D$ = −$^1/_m$ $\sum_{i=1}^{m}$ $^1/_2$[log(D(x$^{(i)}$, h$^{(i)}$)) + log(1 − D($\widetilde{x}$ $^{(i)}$, h$^{(i)}$)) + log(D($\hat{x}$ $^{(i)}$, h$^{(i)}$)) + log(1 − D($\hat{x}^{(i)}$, h$^{(i)}$))].\\
     8: \indent update the parameters of the discriminator: $\theta _{d}$ $\leftarrow$ $\theta _{d}$ $- \epsilon \Delta$$\theta _{d}$ $L_{D}$($\theta _{d}$).\\
-    9: \indent calculate $L_{G}$ = 1 m $\sum_{i=1}^{m}$ $^1/_2$ log(1 − D($\widetilde{x}$ $^{(i)}$, h$^{(i)}$))).\\
+    9: \indent calculate $L_{G}$ = $^1/_m$ $\sum_{i=1}^{m}$ $^1/_2$ log(1 − D($\widetilde{x}$ $^{(i)}$, h$^{(i)}$))).\\
     10: \indent update the parameters of the generator: $\theta _{g}$ $\leftarrow$ $\theta _{g}$ $ - \epsilon \Delta$$\theta _{g}$ $L_{G}$LG($\theta _{g}$).\\
     11: \textbf {end for}
     \\ \\ 
