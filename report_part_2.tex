@@ -74,16 +74,16 @@
     %   \huge \textbf{Введение} \\[1.3cm]
     \end{center} 
     \large 
-    \textit{1. Глубокая сверточная сеть (DCGAN - Deep Convolutional Generative Adversarian Network)}
+    \textit{1. Глубокая сверточная сеть (DCGAN - Deep Convolutional Generative Adversarian Network) [1]}
     \\
     Первое и главное улучшение в архитектуре GAN. Они более устойчивы для обучения и генерируют высокие по качеству результаты. Они также важны, поскольку стали одними из основных базовых показателей для внедрения и использования GAN. 
     \\ \\
-    \textit{2. Условная сеть (Conditional GAN)}
+    \textit{2. Условная сеть (Conditional GAN) [2]}
     \\
     Эта сеть использует дополнительную информацию, а также есть возможность контролировать как будут выглядеть сгенерированные изображения. Условная GAN является расширением GAN. Мы имеем условную информацию Y, которая описывает некоторые аспекты информации. Например, если мы имеем дело с лицами, Y может описать описать такие атрибуты, как пол или цвет волос. Затем эту информацию помеща.т и в генератор и в дискриминатор. \\
     Интересным является то, что по мере того как вы обучаете модель и задаете ей информацию, GAN учится использовать ее и даже имеет возможность генерировать лучшие результаты.
     \\ \\
-    \textit{3. Управляемая генеративно состязательная сеть (ControlGAN)}
+    \textit{3. Управляемая генеративно состязательная сеть (ControlGAN) [3]}
     \\
     Новая архитектура генеративной модели для управления сгенерированными образцами называется управляемой генеративной состязательной сетью (ControlGAN). 
     \\
@@ -91,34 +91,34 @@
     Генератор стремится обмануть дискриминатор и правильно классифицировать его по классификатору. ControlGAN имеет два основных преимущества по сравнению с существующими моделями. 
     Во-первых, ControlGAN может быть обучен уделять больше внимания входным меткам, чтобы ControlGAN мог генерировать образцы с подробной функцией где условный GAN вряд ли может сгенерировать. Во-вторых, ControlGAN использует независимую сеть для сопоставление элементов в соответствующих входных метках. Следовательно, дискриминатор может больше сосредоточиться на своей собственной цели, которая заключается в различении поддельных образцов и оригинальных образцы, так что качество генерируемых образцов может быть улучшено.
     \\ \\
-    \textit{4. Сверточно-рекуррентная нейронная сеть (CRNN)}
+    \textit{4. Сверточно-рекуррентная нейронная сеть (CRNN) [4]}
     \\
     Сверточные рекуррентные нейронные сети представляют собой комбинацию двух наиболее известных нейронных сетей. CRNN (сверточная рекуррентная нейронная сеть) включает CNN (сверточную нейронную сеть), за которой следует RNN (рекуррентные нейронные сети). Предложенная сеть аналогична CRNN, но дает лучшие или оптимальные результаты.
     \\
-    Сеть начинается с традиционной двухмерной сверточной нейронной сети, за которой следуют пакетная нормализация, активация ELU, максимальный пул и выпадение с частотой выпадения 50 ${\%}$. Три таких сверточных слоя расположены последовательно с соответствующими активациями. За сверточными слоями следуют перестановка и слой изменения формы, который очень необходим для CRNN, поскольку форма вектора признаков отличается от CNN к RNN.
+    Сеть начинается с традиционной двухмерной сверточной нейронной сети, за которой следуют пакетная нормализация, активация RELU [5], максимальный пул и выпадение с частотой выпадения 50 ${\%}$. Три таких сверточных слоя расположены последовательно с соответствующими активациями. За сверточными слоями следуют перестановка и слой изменения формы, который очень необходим для CRNN, поскольку форма вектора признаков отличается от CNN к RNN.
     \\ \\
-    \textit{5. Нейронная сеть с прямой связью}
+    \textit{5. Нейронная сеть с прямой связью [6]}
     \\
     Искусственная нейронная сеть, в которой соединения между узлами не образуют цикл. Такая сеть отличается от рекуррентной нейронной сети. Нейронная сеть с прямой связью была первым и самым простым типом искусственной нейронной сети. В этой сети информация перемещается только в одном направлении вперед от входных узлов, через скрытые узлы (если они есть) и к выходным узлам. В сети нет циклов или петель обратных связей.
     \\ \\
-    \textit{6. Нормализация партии}
+    \textit{6. Нормализация партии [7]}
     \\
     Чтобы повысить стабильность нейронной сети, нормализация партии(batch normalization) нормализует выходные данные предыдущего слоя активации путем вычитания среднего значения партии и деления на стандартное отклонение партии. Пакетная нормализация позволяет каждому уровню сети учиться самостоятельно независимо от других уровней.
     \\ \\
-    \textit{7. Партия (batch)}
+    \textit{7. Партия (batch) [8]}
     \\
     Что такое batch? Нельзя пропустить через нейронную сеть разом весь датасет. Поэтому делим данные на пакеты, сеты или партии, так же, как большая статья делится на много разделов — введение, градиентный спуск, эпохи, Batch size и итерации.
     \\ \\
-    \textit{8. Leaky ReLU}
+    \textit{8. Leaky ReLU [9]}
     \\
     Обычные ReLU не всегда достаточно надежны и в процессе обучения могут выходить из строя. Например, большой градиент, проходящий через ReLU, может привести к такому обновлению весов, что данный нейрон никогда больше не активируется. 
     ReLU с «утечкой» (leaky ReLU, LReLU) представляет собой одну из попыток решить эту проблему. Обычный ReLU на интервале x < 0 дает на выходе ноль, в то время как LReLU имеет на этом интервале небольшое отрицательное значение. То есть функция для LReLU имеет вид  f(x) = $\alpha$x при x < 0 и f(x) = x при x $\geqslant$ 0, где $\alpha$ – малая константа. Некоторые исследователи сообщают об успешном применении данной функции активации, но результаты не всегда стабильны.
     \\ \\
-    \textit{9. GRU (Gated recurrent unit)}
+    \textit{9. GRU (Gated recurrent unit) [10]}
     \\
     Управляемые рекуррентные блоки (Gated Recurrent Units, GRU) — механизм вентилей(gates) для рекуррентных нейронных сетей, представленный в 2014 году. 
     \\ \\
-    \textit{10. Pooling}
+    \textit{10. Pooling [11]}
     \\
     Слой POOL (слой пулинга) выполняет операцию по понижающей дискретизации пространственных размеров (ширина и высота), в результате чего объем может сократиться до [16×16×12]. То есть на этом этапе выполняется нелинейное уплотнение карты признаков. Логика работы такова: если на предыдущей операции свертки уже были выявлены некоторые признаки, то для дальнейшей обработки настолько подробное изображение уже не нужно, и оно уплотняется до менее подробной картинки.
     \\ \\
@@ -133,7 +133,7 @@
     \\ \\
     \textit{1. Статья GAN синтез изображения из текста
     \\
-    "Generative Adversarial Text to Image Synthesis", 
+    "Generative Adversarial Text to Image Synthesis" [12], 
     \\
     Scott Reed, Zeynep Akata, Xinchen Yan, Lajanugen Logeswaran, Bernt Schiele, Honglak Lee}
     \\
@@ -144,7 +144,7 @@
     \\ \\
     \textit{2. Статья Text2Scene: создание композиционных сцен из текстовых описаний
     \\
-    "Text2Scene: Generating Compositional Scenes from Textual Descriptions", 
+    "Text2Scene: Generating Compositional Scenes from Textual Descriptions" [13], 
     \\
     Fuwen Tan, Song Feng, Vicente Ordonez}
     \\
@@ -153,7 +153,7 @@
     \\ \\
     \textit{3. Статья Создание соответствующего изображения из текстового описания, используя модифицированный алгоритм GAN-CLS
     \\
-    "Generate the corresponding Image from Text Description using Modified GAN-CLS Algorithm", 
+    "Generate the corresponding Image from Text Description using Modified GAN-CLS Algorithm" [14], 
     \\
     Fuzhou Gonп and Zigeng Xia}
     \\
@@ -164,7 +164,7 @@
     \\ \\
     \textit{4. Статья Управляемое преобразование текста в изображение
     \\
-    "Controllable Text-to-Image Generation",
+    "Controllable Text-to-Image Generation" [15],
     \\
     Bowen Li, Xiaojuan Qi, Thomas Lukasiewicz, Philip H. S. Torr}
     \\
@@ -215,7 +215,7 @@
     11:\indent D $\leftarrow$ D $- \alpha \delta$ $L_{D}$ / $\delta$D $\{$Update discriminator$\}$\\
     12:\indent $L_{G}$ $\leftarrow$ log($s_{f}$)\\
     13:\indent G $\leftarrow$ G $- \alpha \delta$ $L_{G}$/$\delta$ G $\{$Update generator$\}$\\
-    14:  \textbf {$\{$end for$\}$}\\
+    14:  \textbf {end for}\\
     \\
     \textit{Рассмотрим алгоритм более подробно.} \\
     После кодирования текста, изображения и шума (строки 3-5) генерируется поддельное изображение ($\hat{x}$, строка 6). $s_{r}$ указывает оценку связывания реального изображения и соответствующего предложения (строка 7), $s_{w}$ измеряет балл ассоциирования реального изображения с произвольным предложением (строка 8), а $s_{f}$ - балл ассоциирования поддельное изображение с соответствующим текстом (строка 9).
@@ -231,8 +231,8 @@
     \begin{center} 
     \section{Статья 2: Создание изображения из текстового описания, используя модифицированный алгоритм GAN-CLS}
     \end{center} 
-    \large 
-    Алгоритм GAN-CLS устанавливается на основе cGAN (Conditional GAN), а целевая функция модифицируется для того, чтобы дискриминатор мог судить, является ли входной текст и изображение соответствующими.\\
+    \large
+    Алгоритм GAN-CLS [16] устанавливается на основе cGAN (Conditional GAN), а целевая функция модифицируется для того, чтобы дискриминатор мог судить, является ли входной текст и изображение соответствующими.\\
     Целевая функция этого алгоритма:\\ \\
     $\underset{G}{min}$ $\underset{D}{max}$E$_{(x,h) \sim p_{d}(x,h)}$ [logD(x, h)] + $^1/_2$ E$_{z \sim p_{z}(z),h \sim p_{d}(h)}$[log(1 - D(G(z, h)), h)]+$^1/_2$ E$_{z(x,h) \sim p_{\hat{d}}(x,h)}$[log(1 - D(x, h))].
     \\ \\
@@ -272,18 +272,45 @@
     \begin{center} 
     \section{Практика}
     %   \huge \textbf{Практика} \\[1.3cm]
-    \end{center} 
+    \end{center}
+    \large
     
     \newpage
     \begin{center} 
     \section{Заключение}
     %   \huge \textbf{Заключение} \\[1.3cm]
-    \end{center} 
+    \end{center}
+    \large
     
     \newpage
     \begin{center} 
     \section{Список литературы}
     %   \huge \textbf{Список литературы} \\[1.3cm]
-    \end{center} 
+    \end{center}
+    \large
+    \begin{enumerate} 
+    \item Unsupervised representation learning with DCGAN, Alec Radford & Luke Metz, indico Research, Boston, MA
+    \item Conditional Generative Adversarial Nets, Mehdi Mirza, Simon Osindero
+    \item Исследование генеративно-состязательной сети, А.Э. Айрапетов, А.А. Коваленко, МГТУ им. Н.Э. Баумана, Москва, Российская Федерация
+    \item Свёрточные нейронные сети: взгляд изнутри, Автор: rustam1208URL: [Электронный ресурс]: \\  URL: http://ru.datasides.com/code/cnn-convolutional-neural-networks/
+    \item Activation Functions : Sigmoid, ReLU, Leaky ReLU and Softmax basics for Neural Networks and Deep Learning, [Электронный ресурс]: \\ URL: https://medium.com/@himanshuxd/activation-functions-sigmoid-relu-leaky-relu-and-softmax-basics-for-neural-networks-and-deep-8d9c70eed91e
+    \item Feedforward neural network - Нейронная сеть с прямой связью [Электронный ресурс]: Википедия. Свободная энциклопедия.\\
+    URL: https://en.wikipedia.org/wiki/Feedforward\_neural\_network
+    \item Batch normalization [Электронный ресурс]: Википедия. Свободная энциклопедия.\\ URL: https://en.wikipedia.org/wiki/Batch\_normalization
+    \item Эпоха, батч, итерация — в чем различия? [Электронный ресурс]:\\
+    \indent URL: https://neurohive.io/ru/osnovy-data-science/jepoha-razmer-batcha-iteracija/
+    \item Курс CS231n Convolutional Neural Networks for Visual Recognition, [Электронный ресурс]: \\ 
+    URL: https://cs231n.github.io/neural-networks-1/
+    \item Gated recurrent unit - Управляемый рекуррентный блок
+ [Электронный ресурс]: Википедия. Свободная энциклопедия.\\
+    \indent URL: https://en.wikipedia.org/wiki/Gated\_recurrent\_unit
+    \item Image-to-Image Translation with Conditional Adversarial Networks, Phillip Isola, Jun-Yan Zhu, Tinghui Zhou, Alexei A. Efros, Berkeley AI Research (BAIR) Laboratory, UC Berkeley
+    \item "Generative Adversarial Text to Image Synthesis, Scott Reed, Zeynep Akata, Xinchen Yan, Lajanugen Logeswaran, Bernt Schiele, Honglak Lee
+    \item Text2Scene: Generating Compositional Scenes from Textual Descriptions, Fuwen Tan, Song Feng, Vicente Ordonez 
+    \item Generate the corresponding Image from Text Description using Modified GAN-CLS Algorithm, Fuzhou Gonп and Zigeng Xia
+    \item Controllable Text-to-Image Generation, Bowen Li, Xiaojuan Qi, Thomas Lukasiewicz, Philip H. S. Torr
+    \item Generate the corresponding Image from Text Description using Modified GAN-CLS Algorithm, Fuzhou Gong, Zigeng Xia [Электронный ресурс]\\
+    \indent URL: https://www.groundai.com/project/generate-the-corresponding-image-from-text-description-using-modified-gan-cls-algorithm/
+    \end{enumerate}
     
 \end{document}
