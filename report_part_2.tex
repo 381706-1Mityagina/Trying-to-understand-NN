@@ -66,7 +66,18 @@
     \begin{center} 
     \section{Введение}
     %   \huge \textbf{Введение} \\[1.3cm]
-    \end{center} 
+    \end{center}
+    \large 
+    Целью данной работы является изложение
+    \begin{enumerate} 
+    \item уже существующих решений задачи генерации изображений по текстовому
+    описанию
+    \item основных составляющих частей программной реализации этих решений
+    \item основных положений из теории, лежащих в основе выбранных методов
+    \item результатов некоторых проведенных экспериментов
+    \end{enumerate} 
+    \\
+    
     
     \newpage
     \begin{center} 
@@ -122,7 +133,6 @@
     \\
     Слой POOL (слой пулинга) выполняет операцию по понижающей дискретизации пространственных размеров (ширина и высота), в результате чего объем может сократиться до [16×16×12]. То есть на этом этапе выполняется нелинейное уплотнение карты признаков. Логика работы такова: если на предыдущей операции свертки уже были выявлены некоторые признаки, то для дальнейшей обработки настолько подробное изображение уже не нужно, и оно уплотняется до менее подробной картинки.
     \\ \\
-    \textit{11. }
     \newpage
     \begin{center} 
     \section{Краткий обзор источников}
@@ -274,6 +284,87 @@
     %   \huge \textbf{Практика} \\[1.3cm]
     \end{center}
     \large
+    В процессе изучения теоретической стороны проблемы были предприняты попытки реализации некоторых основных частей на практике.\\
+    Были реализованы:
+    \begin{enumerate}
+        \item Autoencoder
+        \item CNN
+        \item Image Generator (DCGAN)
+    \end{enumerate}
+    \\
+    Исследование результатов производилось при помощи изучения поведения loss функции(или функции потерь).
+    Функция потерь на реальных примерах — это кросс-энтропия между единицей (ожидаемым ответом дискриминатора на реальных примерах) и оценками дискриминатора.
+    Обучение модели сводится к поочередному обучению дискриминатора и генератора в цикле до сходимости.
+    Рассматривались следующие датасеты :
+    \begin{enumerate}
+        \item Caltech-UCSD Birds 200
+        \item tom-and-jerrys-face-detection-dateset (Kaggle)
+    \end{enumerate}
+    Рассмотрим результаты :
+
+    \begin{center} 
+    \includegraphics[scale=0.65]{kurs1.png}
+    \\
+    \caption{Рис. 3 - epoch 1/70}
+    \\ \\
+    \end{center} 
+
+    \begin{center} 
+    \includegraphics[scale=0.65]{kurs2.png}
+    \\
+    \caption{Рис. 4 - epoch 15/70 (появляются цвета)}
+    \\ \\
+    \end{center} 
+    
+    \begin{center} 
+    \includegraphics[scale=0.65]{kurs3.png}
+    \\
+    \caption{Рис. 5 - epoch 22/70 (появление рамок изображения, как и на эталонных)}
+    \\ \\
+    \end{center} 
+    
+    \begin{center} 
+    \includegraphics[scale=0.65]{kurs4.png}
+    \\
+    \caption{Рис. 6 - epoch 27/70}
+    \\ \\
+    \end{center} 
+    
+    \begin{center} 
+    \includegraphics[scale=0.65]{kurs5.png}
+    \\
+    \caption{Рис. 7 - epoch 28/70 (можем увидеть некие очертания персонажей)}
+    \\ \\
+    \end{center} 
+    
+    % \begin{center} 
+    % \includegraphics[scale=0.65]{kurs6.png}
+    % \\
+    % \caption{Рис. 8 - epoch 35/70}
+    % \\ \\
+    % \end{center} 
+    
+    % \begin{center} 
+    % \includegraphics[scale=0.65]{kurs7.png}
+    % \\
+    % \caption{Рис. 9 - epoch 45/70}
+    % \\ \\
+    % \end{center} 
+    
+    % \begin{center} 
+    % \includegraphics[scale=0.65]{kurs8.png}
+    % \\
+    % \caption{Рис. 10 - epoch 55/70}
+    % \\ \\
+    % \end{center} 
+    
+    % \begin{center} 
+    % \includegraphics[scale=0.65]{kurs9.png}
+    % \\
+    % \caption{Рис. 11 - epoch 65/70}
+    % \\ \\
+    % \end{center} 
+    
     
     \newpage
     \begin{center} 
