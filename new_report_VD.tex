@@ -80,8 +80,8 @@
     
     \newpage
     \begin{center} 
-    \section{Краткий обзор источников}
-    \large \textbf {Статья On the Spectral Bias of Neural Networks, \\ Nasim Rahaman, Aristide Baratin, Devansh Arpit, Felix Draxler, Min Lin. Fred A. Hamprecht, Yoshua Bengio,Aaron Courville}    
+    \section{Обзор источников}
+    \large \textbf {Статья "On the Spectral Bias of Neural Networks", \\ Nasim Rahaman, Aristide Baratin, Devansh Arpit, Felix Draxler, Min Lin. Fred A. Hamprecht, Yoshua Bengio,Aaron Courville}    
     \end{center}
     \\
     \large 
@@ -96,7 +96,64 @@
     \\ \\
     Хотя нейронные сети могут аппроксимировать произвольные функции, авторы статьи находят, что эти сети приоритезируют изучение низкочастотных режимов, явление, называемое спектральным смещеним. Этот уклон проявляется не просто в процессе обучения, но и в параметризации модели: на самом деле, показано, что более низкая частота компоненты обученных сетей более устойчива к случайным возмущениям параметров.
     \\
-    
+    Рассмотрим составные части статьи более подробно.
+    \\ \\
+    \textbf {\textit{Фурье-анализ сетей ReLU}}
+    \\
+    Под «сеть ReLU» будем понимать скалярную функциию f : ${\mathbb{R}}^{d} \mapsto {\mathbb{R}}$, определяемую нейронной сетью с L скрытыми слоями шириной $d_1$, ... , $d_L$ и одним выходным нейроном:
+    \\
+    \begin{center} 
+    f(x) $= (T^{(L+1)} \circ \sigma \circ T^{(L)} \circ $ ... $ \circ \sigma \circ T^{(1)})(x)$,
+    \end{center}
+    \\
+    где T$^{(k)}$ : ${\mathbb{R}}^{d_{k-1}} \rightarrow {\mathbb{R}^{d_{k}}}$ - это аффинная функция ($d_0$ = d и $d_{L + 1}$ = 1) и $\sigma(u)_i$ = max(0, $u_i$) обозначает функцию активации ReLU, действующая поэлементно на вектор u = ($u_1$, ... , $u_n$).
+    \\ 
+    Учитывая сеть ReLU f из уравнения, приведенного выше, мы можем сделать кусочную линейность явной, написав
+    \begin{center} 
+    $f(x)= \sum\limits_{\epsilon} 1_{P_{\epsilon}}(x) (W_{\epsilon}x + b_{\epsilon})$
+    \end{center}
+    \\
+    где ${\epsilon}$ индекс для линейных областей $P_{\epsilon}$ и $1_{P_{\epsilon}}$ это функция индикатора на $P_{\epsilon}$.
+    \\ \\
+    \textbf {\textit{Фурье Спектрум}}
+    \\
+    Далее мы рассмотрим структуру сетей ReLU с точки зрения их представления Фурье. Леммы 1 и 2 дают явный вид компонент Фурье.
+    \\ \\
+    \textit{Лемма 1:}
+    \\
+    Преобразование Фурье сетей ReLU раскладывается как:
+    \\
+    \begin{center} 
+    $f(x)= i \sum\limits_{\epsilon} \frac{W_{\epsilon}k}{k^2} \tilde{1}_{P_{\epsilon}}(k) $
+    \end{center}
+    \\
+    где $k = \Vert k \Vert$ и $\tilde{1}_{P_{\epsilon}}(k) = \int\limits_{P} e^{-ikx}dx$ это Фурье преобразование индикаторной функции P.
+    \\
+    \textit{Доказательство:}
+    \\
+    Вектор-функция
+    $kf(x)e^{ikx}$ везде непрерывна и имеет четко определенные и непрерывные градиенты почти всюду. Так по теореме Стокса, интеграл его расходимости является чисто граничным слагаемым. Поскольку мы ограничены функциями с компактным носителем, теорема дает
+    \begin{center}
+    $\int\limits_{P} \bigtriangledown_{x} [ \textbf{k}f(x)e^{-i\textbf{kx}} ]$
+    \end{center}
+    \\ 
+    Подынтегральное выражение есть: ($\textbf{k}(\bigtriangledown_{x}f)(x) - ik^{2}f(x)$)$e^{-\textbf{ikx}}$, поэтому выводим
+    \begin{center}
+    $\hat{f}(\textbf{k}) = \frac{1}{-ik^2}\textbf{k}$ $\int(\bigtriangledown_{x}f)(x)e^{-\textbf{ikx}}$
+    \end{center}
+    \\
+    поэтому градиент f является постоянным вектором, $\bigtriangledown_{x}f_{\epsilon}$ = ${W_{\epsilon}}^{T}$, что дает желаемый результат.
+    \\ \\
+    \textit{Лемма 2:}
+    \\
+    Пусть P - многомерный многогранник в ${\mathbb{R}}^d$, его спектр Фурье принимает вид
+    \begin{center}
+    $\tilde{1}_{P}(\textbf{k}) = \sum\limits_{n=0}^{d}{\frac{D_n(\textbf{k})1_{G_{n}}(\textbf{k})}{k^n}}$ 
+    \end{center}
+    \\
+    \textbf {\textit{}}
+    \\
+    \textbf {\textit{}}
     \\
     \newpage
     \begin{center} 
@@ -120,7 +177,6 @@
     \\ \\ \\
     В процессе изучения данной области, конечно, были и неудачи. Не удалось реализовать эффективный метод решения поставленной задачи, готова лишь часть необходимого функционала.
     \\ \\
-    Можно сделать вывод о том, что данная область полна потенциала и является актуальной для исследования.
     
     \newpage
     \begin{center} 
