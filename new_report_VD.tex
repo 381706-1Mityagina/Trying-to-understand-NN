@@ -81,7 +81,7 @@
     \newpage
     \begin{center} 
     \section{Обзор источников}
-    \large \textbf {Статья "On the Spectral Bias of Neural Networks", \\ Nasim Rahaman, Aristide Baratin, Devansh Arpit, Felix Draxler, Min Lin. Fred A. Hamprecht, Yoshua Bengio,Aaron Courville}    
+    \large \textbf {On the Spectral Bias of Neural Networks, \\ Nasim Rahaman, Aristide Baratin, Devansh Arpit, Felix Draxler, Min Lin. Fred A. Hamprecht, Yoshua Bengio,Aaron Courville}    
     \end{center}
     \\
     \large 
@@ -151,16 +151,59 @@
     $\tilde{1}_{P}(\textbf{k}) = \sum\limits_{n=0}^{d}{\frac{D_n(\textbf{k})1_{G_{n}}(\textbf{k})}{k^n}}$ 
     \end{center}
     \\
-    \textbf {\textit{}}
+    где $G_{n}$ - объединение n-мерных подпространств, ортогональных некоторой n-мерной грани P. 
     \\
-    \textbf {\textit{}}
+    Леммы 1, 2 вместе дают основной результат этого раздела.
+    \\ \\
+    \textit{Теорема 1:}
     \\
+    Фурье-компоненты сети ReLU $f_{\theta}$ с параметрами $\theta$ задается рациональной функцией:
+    \begin{center}
+    $\tilde{f}_{\theta}(\textbf{k}) = \sum\limits_{n=0}^{d}{\frac{C_n(\theta, \textbf{k})1_{{H_{n}}^{\theta}}(\textbf{k})}{k^{n+1}}}$ 
+    \end{center}
+    \\
+    где ${{H_{n}}^{\theta}}$ является объединением n-мерных подпространств, ортогональных некоторым n-коразмерным граням некоторого многогранника
+    \\ \\
+    \textit{Обсуждение:}
+    \\
+    Сделаем следующие два замечания. Первое, спектральный распад сетей ReLU сильно анизотропен в больших размерах. Почти во всех направлениях ${\mathbb{R}}^d$, у нас есть $k^{−d − 1}$ распад. Тем не менее, распад может быть столь же медленным, как $k^{−2}$ в определенных направлениях, ортогональных к (d - 1)-мерному грани, ограничивающие линейные области
+    \\
+    Во-вторых, числитель в уравнении из леммы 2 ограничен $N_fL_f$, где $N_f$ - количество линейных областей, a $L_f = max_{\epsilon}\Vert W_{\epsilon} \Vert$ - постоянная Липшица сети.
+    \\
+    Кроме того, константа Липшица $L_f$ может быть ограничена как
+    \begin{center}
+    $L_f \leq \prod\limits_{k=1}^{L+1} \Vert W^{k} \Vert \leq {{\Vert \theta \Vert}_{\infty}}^{L+1} \surd{d} \prod\limits_{k=1}^{L}d_{k}$ 
+    \end{center}
+    \\
+    где \Vert  \Vert - спектральная норма, а \Vert  \Vert$_{\infty}$ - максимальная норма, и $d_k$ - количество единиц в k-м слое
+    \\ \\
     \newpage
     \begin{center} 
     \section{Результаты практики}
     %   \huge \textbf{Практика} \\[1.3cm]
     \end{center}
     \large
+    
+    \begin{center} 
+    \includegraphics[scale=0.5]{graph.jpg}
+    \\
+    \caption{Рис. 1 - }
+    \\ \\
+    \end{center} 
+    Эволюция спектра (ось X для частоты) во время тренировки (ось Y). Цвета показывают измеренную амплитуду спектра сети на соответствующей частоте, нормированной на целевую амплитуду на той же частоте и цветовая полоса ограничена от 0 до 1
+    \begin{center} 
+    \includegraphics[scale=0.5]{chart.jpg}
+    \\
+    \caption{Рис. 2 - }
+    \\ \\
+    \end{center} 
+    
+    \begin{center} 
+    \includegraphics[scale=0.5]{layer.jpg}
+    \\
+    \caption{Рис. 3 - }
+    \\ \\
+    \end{center} 
     
     \newpage
     \begin{center} 
